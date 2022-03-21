@@ -20,6 +20,7 @@ import { secondaryMain } from '../style';
 import { Button } from '@mui/material';
 import { signOut } from 'firebase/auth';
 import {auth} from '../firebase-config'
+import { minHeight } from '@mui/system';
 
 const useStyles = makeStyles({
   activeLink : {
@@ -92,8 +93,10 @@ export default function AdminLayout({children , user , setUser , open , setOpen}
   };
 
   const navigate = useNavigate()
-
   React.useEffect(()=>{
+    if(window.screen.width>=500){
+      setOpen(true)
+    }
     if(!user){
       navigate('/admin/login')
     }else{

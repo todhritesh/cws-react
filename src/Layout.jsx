@@ -32,7 +32,7 @@ function Layout() {
   const [user , setUser] = React.useState('')
   const classes = useStyles()
   const location = useLocation()
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   return (
     <Grid container className={classes.backgroundTheme}>
         {!location.pathname.includes('admin') && <Navbar/> }
