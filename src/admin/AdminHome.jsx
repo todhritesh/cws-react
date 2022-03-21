@@ -28,9 +28,9 @@ const useStyles = makeStyles({
 function AdminHome() {
     const classes = useStyles()
   return (
-    <Grid container sx={{minHeight:'100vh' , mt:3 , justifyContent:'center' , px:4}} spacing={2}>
+    <Grid container sx={{minHeight:'100vh' , mt:3 , justifyContent:'center'}} spacing={2}>
         <Grid item lg={4} md={6}>
-            <Card>
+            <Card >
                 <CardContent className={`${classes.cardTexture}`}>
                     <Typography className={`${classes.textFont} `} component='div' variant="p">
                         Total Students
@@ -42,7 +42,7 @@ function AdminHome() {
             </Card>
         </Grid>
         <Grid item lg={4} md={6}>
-            <Card>
+            <Card >
                 <CardContent className={`${classes.cardTexture}`}>
                     <Typography className={`${classes.textFont} `} component='div' variant="p">
                         Pending Applications
@@ -54,7 +54,7 @@ function AdminHome() {
             </Card>
         </Grid>
         <Grid item lg={4} md={6}>
-            <Card>
+            <Card >
                 <CardContent className={`${classes.cardTexture}`}>
                     <Typography className={`${classes.textFont} `} component='div' variant="p">
                         Total Courses
