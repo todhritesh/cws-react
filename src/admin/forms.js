@@ -8,6 +8,7 @@ import { Box } from "@mui/system";
 import React , {useState , useEffect} from 'react'
 import {ref as fileRef , deleteObject, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import {storage} from '../firebase-config'
+import { getCurrentDate } from "../App";
 
 
 const schema = yup.object().shape({
@@ -35,7 +36,9 @@ export const AddStudentForm = ({openDialog , setOpenDialog}) => {
     function formSubmit(data) {
         const studentsRef = ref(db , 'students');
         const newStudent = push(studentsRef);
-        data['isVerified']=false
+        data['isVerified']=true
+        data['joined']=getCurrentDate()
+
         set(newStudent,data);
         reset({
             name:'',
@@ -142,7 +145,7 @@ export const AddStudentForm = ({openDialog , setOpenDialog}) => {
                         control={control}
                         name="dob"
                         render={({field})=>(
-                            <TextField error={Boolean(errors.dob)} helperText={errors.dob?.message} type="month" {...field}  size="small" fullWidth />
+                            <TextField error={Boolean(errors.dob)} helperText={errors.dob?.message} type="date" {...field}  size="small" fullWidth />
                         )}
                         />
                     </FormControl>

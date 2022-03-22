@@ -28,7 +28,7 @@ function Achievements() {
             {
                 data.map((item , i)=>(
 
-                <Grid item lg={2} md={3}>
+                <Grid key={i} item lg={2} md={3}>
                     <AchievementsCard name={item.name} company={item.company} role={item.role} image={item.image} />
                 </Grid>
 

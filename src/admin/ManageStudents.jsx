@@ -6,6 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import {db} from '../firebase-config'
 import {ref , onValue , update} from 'firebase/database'
 import { AddStudentForm } from './forms';
+import { getCurrentDate } from '../App';
 
 const theme = createTheme()
 const useStyles = makeStyles(theme=>{
@@ -59,7 +60,8 @@ function ManageStudents() {
     function handleVerify(id){
         const studentRef = ref(db , `students/${id}`);
         update(studentRef , {
-            isVerified:true
+            isVerified:true,
+            joined:getCurrentDate()
         })
     }
   return (
@@ -98,7 +100,7 @@ function ManageStudents() {
                                 <TableCell>{item.education}</TableCell>
                                 <TableCell>{item.address}</TableCell>
                                 <TableCell>
-                                    {(item.isVerified)?<Typography sx={{background:'#2ecc71',textAlign:'center',py:0.5}}>Verified</Typography >:<Button onClick={()=>handleVerify(item.id)} size="small" color="warning" variant="contained"><Typography variant='caption'>Pending</Typography></Button>}
+                                    {(item.isVerified)?<Typography sx={{background:'#2ecc71',textAlign:'center',py:0.5,px:1}}>Verified</Typography >:<Button onClick={()=>handleVerify(item.id)} size="small" color="warning" variant="contained"><Typography variant='caption'>Pending</Typography></Button>}
                                 </TableCell>
                                 <TableCell><IconButton onClick={()=>handleEditForm(item.id)} color="success" size="small" ><EditIcon/></IconButton></TableCell>
                             </TableRow>

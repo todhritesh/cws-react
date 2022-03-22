@@ -132,7 +132,7 @@ function ApplyPage() {
                                         control={control}
                                         name="dob"
                                         render={({field})=>(
-                                            <TextField error={Boolean(errors.dob)} helperText={errors.dob?.message} type="month" {...field}  size="small" fullWidth />
+                                            <TextField error={Boolean(errors.dob)} helperText={errors.dob?.message} type="date" {...field}  size="small" fullWidth />
                                         )}
                                         />
                                     </FormControl>

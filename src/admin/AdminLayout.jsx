@@ -20,7 +20,7 @@ import { secondaryMain } from '../style';
 import { Button } from '@mui/material';
 import { signOut } from 'firebase/auth';
 import {auth} from '../firebase-config'
-import { minHeight } from '@mui/system';
+
 
 const useStyles = makeStyles({
   activeLink : {

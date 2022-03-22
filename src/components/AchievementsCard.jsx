@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 
 function AchievementsCard({name , image , company , role}) {
     const classes = useStyles()
-    console.log(image)
   return (
     <Card elevation={10}>
         <CardMedia

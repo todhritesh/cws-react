@@ -25,7 +25,7 @@ function Courses() {
     <Grid container={true} xs={12} spacing={3}>
       {
         data.map((item , i)=>(
-          <Grid item lg={2} md={3}>
+          <Grid key={i} item lg={2} md={3}>
               <CourseCard title={item.title} duration={item.duration} image={item.image}/>
           </Grid>
         ))
